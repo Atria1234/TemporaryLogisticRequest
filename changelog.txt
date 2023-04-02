@@ -1,0 +1,12 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2023-04-02
+  Feature:
+    - "ALT + Left mouse button" increases personal logistic requests of hovered over prototype by one.
+    - "ALT + Right mouse button" increases personal logistic requests of hovered over prototype by five.
+    - "CTRL + ALT + Left mouse button" increases personal logistic requests of hovered over recipe ingredients by one recipe's worth.
+    - "CTRL + ALT + Right mouse button" increases personal logistic requests of hovered over recipe ingredients by five recipe's worth.
+    - Once the items arrive to the inventory the requests are reset to their previous values.
+    - Mod setting configures how often fulfilled requests are checked.
+  Info:
+    - Item count in player inventory is taken into account when creating a request. For example: the request will be set to 101 if player already has 100 of requested item in their inventory (and if you are increasing the request by one).
