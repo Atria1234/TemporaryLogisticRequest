@@ -129,8 +129,16 @@ local function create_event_handler(use_result, multiplier)
                 })
             end
         elseif event.selected_prototype and event.selected_prototype.base_type == "entity" then
+            local entity_name = event.selected_prototype.name
+            if event.selected_prototype.name == 'entity-ghost' then
+                local ghost_entity = player.surface.find_entity(event.selected_prototype.name, event.cursor_position)
+                if ghost_entity then
+                    entity_name = ghost_entity.ghost_name
+                end
+            end
+
             if use_result then
-                local items_to_place_this = game.entity_prototypes[event.selected_prototype.name].items_to_place_this
+                local items_to_place_this = game.entity_prototypes[entity_name].items_to_place_this
                 if items_to_place_this and table_size(items_to_place_this) == 1 then
                     create_item_flying_text(player, items_to_place_this[1].name, multiplier)
 
