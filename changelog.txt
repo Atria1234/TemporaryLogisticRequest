@@ -1,7 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2023-04-03
+  Bugfixes:
+    - Fixed crash when modifying character logistic requests while it still doesn't have a player connected to it.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2023-04-02
-  Feature:
+  Features:
     - "ALT + Left mouse button" increases personal logistic requests of hovered over prototype by one.
     - "ALT + Right mouse button" increases personal logistic requests of hovered over prototype by five.
     - "CTRL + ALT + Left mouse button" increases personal logistic requests of hovered over recipe ingredients by one recipe's worth.

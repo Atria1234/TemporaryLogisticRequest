@@ -139,8 +139,6 @@ local function create_event_handler(use_result, multiplier)
                     })
                 end
             end
-        elseif event.selected_prototype then
-            game.players[event.player_index].print(event.selected_prototype.base_type..' '..event.selected_prototype.derived_type..' '..event.selected_prototype.name)
         end
     end
 
@@ -149,7 +147,7 @@ end
 
 local function reset_old_request(event)
     -- if player's requests are modified NOT by this mod
-    if not is_this_mod_modifying_requests and event.entity.name == 'character' then
+    if not is_this_mod_modifying_requests and event.entity.type == 'character' and event.entity.player then
         get_old_requests(event.entity.player.index)[event.slot_index] = nil
     end
 end
