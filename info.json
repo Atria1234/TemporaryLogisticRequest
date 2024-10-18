@@ -1,11 +1,11 @@
 {
   "name": "TemporaryLogisticRequest",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "title": "Temporary Logistic Request",
   "author": "Atria",
   "contact": "tomas.chmelik2@gmail.com",
   "homepage": "https://github.com/Atria1234/TemporaryLogisticRequest",
-  "factorio_version": "1.1",
-  "dependencies": ["base >= 1.1", "!RecipeLogisticRequest"],
+  "factorio_version": "2.0",
+  "dependencies": ["!RecipeLogisticRequest"],
   "description": "Mod which allows you to temporary increase your personal logistic requests by clicking on recipes, items and entities."
 }
