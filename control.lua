@@ -1,6 +1,6 @@
 require('init')
 
-local function get_temporary_request_logistic_section(player, logistic_point, or_create)
+local function get_request_logistic_section(player, logistic_point, or_create)
     local section_name = TemporaryLogisticRequest.get_logistic_section_name(player)
     for _, section in ipairs(logistic_point.sections) do
         if section.group == section_name then
@@ -9,7 +9,11 @@ local function get_temporary_request_logistic_section(player, logistic_point, or
     end
 
     if or_create then
-        return logistic_point.add_section(section_name)
+        local section = logistic_point.add_section(section_name)
+        for i = 1, section.filters_count do
+            section.clear_slot(i)
+        end
+        return section
     end
 
     return nil
@@ -23,7 +27,7 @@ local function modify_requests(player, requested_items)
 
     local logistic_point = character.get_logistic_point(defines.logistic_member_index.character_requester)
     if logistic_point then
-        local section = get_temporary_request_logistic_section(player, logistic_point, true)
+        local section = get_request_logistic_section(player, logistic_point, true)
 
         for i, request in ipairs(section.filters) do
             if request.value then
@@ -152,7 +156,7 @@ local function cleanup_fulfilled_requests()
             local logistic_point = player.character.get_logistic_point(defines.logistic_member_index.character_requester)
 
             if logistic_point then
-                local section = get_temporary_request_logistic_section(player, logistic_point, false)
+                local section = get_request_logistic_section(player, logistic_point, false)
                 if section then
                     for i, request in ipairs(section.filters) do
                         if request.value then
